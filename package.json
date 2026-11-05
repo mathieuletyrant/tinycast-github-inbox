@@ -1,0 +1,57 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "github-inbox",
+  "title": "GitHub Inbox",
+  "description": "GitHub notifications in the launcher and the menu bar: open them, or mark them as done.",
+  "icon": "icon.png",
+  "author": "mathieuletyrant",
+  "license": "MIT",
+  "platforms": ["macOS"],
+  "categories": ["Developer Tools"],
+  "commands": [
+    {
+      "name": "inbox-status",
+      "title": "GitHub Inbox",
+      "description": "Launcher row showing the unread count and the latest notification. Opens the list.",
+      "mode": "no-view",
+      "interval": "1m",
+      "keywords": ["notifications", "github"]
+    },
+    {
+      "name": "inbox-menu",
+      "title": "GitHub Inbox Menu Bar",
+      "description": "Unread notifications in the menu bar. Click opens, Option-click marks as done.",
+      "mode": "menu-bar",
+      "interval": "1m"
+    },
+    {
+      "name": "inbox",
+      "title": "GitHub Inbox List",
+      "description": "List unread notifications. Enter opens, Cmd-D marks as done.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "token",
+      "title": "GitHub Token",
+      "description": "Classic personal access token with the notifications scope.",
+      "type": "password",
+      "required": true,
+      "placeholder": "ghp_..."
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.11.1",
+    "@raycast/utils": "^2.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.8.0"
+  },
+  "scripts": {
+    "test": "node --test src/github.test.ts",
+    "build": "ray build -e dist -o dist"
+  }
+}
